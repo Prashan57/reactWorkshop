@@ -1,0 +1,12 @@
+.header {
+  background-color: teal;
+  display: "flex";
+  height: "30px";
+  justifycontent: "space-between";
+  padding: "20px ";
+}
+
+.headerContent {
+  display: "flex";
+  gap: "25px";
+}
