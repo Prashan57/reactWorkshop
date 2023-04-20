@@ -1,7 +1,7 @@
 import React from "react";
 import Item from "./item";
 
-const ItemList = ({ list }) => {
+const ItemList = ({ list, onListChange }) => {
   if (list.length === 0) {
     return (
       <div
@@ -19,6 +19,7 @@ const ItemList = ({ list }) => {
         console.log("INDESSSSCCXXXX", index);
         return (
           <Item
+            onChange={onListChange}
             key={`${list.title}-${index}`}
             title={list.title}
             description={list.description}

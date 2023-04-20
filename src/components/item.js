@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import IndexForm from "./indexForm";
 
-const Item = ({ title, description }) => {
+const Item = ({ title, description, onChange }) => {
   const [isEdited, setEdited] = useState(false);
   if (isEdited) {
     return (
@@ -10,6 +10,16 @@ const Item = ({ title, description }) => {
         initialData={{
           title,
           description,
+        }}
+        onSubmit={(data) => {
+          console.log("Updated Data ==> ", data);
+          onChange({
+            oldData: {
+              title,
+              description,
+            },
+            newData: data,
+          });
         }}
         onClose={() => {
           setEdited(false);
@@ -59,7 +69,23 @@ const Item = ({ title, description }) => {
         >
           Edit
         </button>
-        <button>Delete</button>
+        <button
+          onClick={() => {
+            console.log("delete triggered ==> ", title);
+            onChange(
+              {
+                oldData: {
+                  title,
+                  description,
+                },
+                newData: {},
+              },
+              "delete"
+            );
+          }}
+        >
+          Delete
+        </button>
       </div>
     </div>
   );

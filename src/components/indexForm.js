@@ -25,13 +25,13 @@ const IndexForm = ({ initialData = {}, onSubmit, onClose }) => {
     }
 
     //After validation
-    // setError("")
+    setError("");
     onSubmit({
       title,
       description,
     }); //data posted
-    // setTitle("");
-    // setDescription("");
+    setTitle("");
+    setDescription("");
   };
 
   return (
