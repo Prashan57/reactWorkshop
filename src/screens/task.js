@@ -3,22 +3,14 @@ import Layout from "../layout/layout";
 import IndexForm from "../components/indexForm";
 import ItemList from "../components/itemList";
 
-const Task = (
-  initialTask = {
-    title: "No task Added",
-    description: "Add some description",
-  }
-) => {
+const Task = () => {
   const [items, setItems] = useState([]);
   console.log("Items", items);
   const onSubmit = (data) => {
     console.log("Data to be submitted: ", data);
     setItems((prevItem) => [data, ...prevItem]);
   };
-  useEffect(() => {
-    if (initialTask.title) setItems(initialTask.title);
-    if (initialTask.description) setItems(initialTask.description);
-  }, [initialTask]);
+
   const onListChange = (data, type = "edit") => {
     console.log(data);
     if (type === "edit") {
