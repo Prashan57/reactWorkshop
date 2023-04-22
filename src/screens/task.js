@@ -5,6 +5,7 @@ import ItemList from "../components/itemList";
 
 const Task = () => {
   const [items, setItems] = useState([]);
+
   console.log("Items", items);
   const onSubmit = (data) => {
     console.log("Data to be submitted: ", data);
@@ -51,7 +52,7 @@ const Task = () => {
         }}
       >
         <IndexForm onSubmit={onSubmit} />
-        <ItemList list={items} onListChange={onListChange} />{" "}
+        <ItemList list={items} onListChange={onListChange} />
         {/* *passing props in components */}
       </div>
     </Layout>

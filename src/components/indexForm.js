@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Info from "./info";
+import "../styles/button.css";
 
 const IndexForm = ({ initialData = {}, onSubmit, onClose }) => {
   const [title, setTitle] = useState("");
@@ -85,8 +86,12 @@ const IndexForm = ({ initialData = {}, onSubmit, onClose }) => {
             justifyContent: "center",
           }}
         >
-          <button type="submit" style={{ width: 100, height: 30 }}>
-            {!!initialData.title ? "Update" : "Submit"}
+          <button
+            type="submit"
+            class="button"
+            style={{ verticalAlign: "middle" }}
+          >
+            <span>{!!initialData.title ? "Update" : "Submit"}</span>
           </button>
           {onClose && (
             <button
