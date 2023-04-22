@@ -12,6 +12,9 @@ const Home = () => {
         <Link to="/task" style={contentLinkStyle}>
           Add a Task
         </Link>
+        <Link to="/additem" style={contentLinkStyle}>
+          Add an Item
+        </Link>
       </div>
     </Layout>
   );

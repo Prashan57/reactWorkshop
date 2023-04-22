@@ -3,6 +3,7 @@ import About from "../screens/about";
 import Contact from "../screens/contact";
 import PageNotFound from "../screens/pageNotFound";
 import Task from "../screens/task";
+import AddItems from "../screens/addItem";
 
 export const routes = [
   {
@@ -24,6 +25,11 @@ export const routes = [
     path: "/task",
     element: <Task />,
     name: "Task",
+  },
+  {
+    path: "/additem",
+    element: <AddItems />,
+    name: "Add Item",
   },
   {
     path: "/404",
