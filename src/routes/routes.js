@@ -4,6 +4,8 @@ import Contact from "../screens/contact";
 import PageNotFound from "../screens/pageNotFound";
 import Task from "../screens/task";
 import AddItems from "../screens/addItem";
+import User from "../screens/user";
+import Auth from "../screens/auth";
 
 export const routes = [
   {
@@ -30,6 +32,16 @@ export const routes = [
     path: "/additem",
     element: <AddItems />,
     name: "Add Item",
+  },
+  {
+    path: "/user",
+    element: <User />,
+    name: "User",
+  },
+  {
+    path: "/auth",
+    element: <Auth />,
+    name: "Auth",
   },
   {
     path: "/404",

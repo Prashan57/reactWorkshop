@@ -6,12 +6,15 @@ import { app } from "../constants/appConstants";
 import { colors } from "../constants/colors";
 
 import { headerContent, headerStyle, headerLinkStyle } from "../styles/styles";
+import { useEmailContext } from "../context/emailContext";
 
 const Header = () => {
+  const { name } = useEmailContext();
   return (
     <div style={headerStyle}>
       <div>
         <Link to="/" style={headerLinkStyle}>
+          {name}
           {app.user}
         </Link>
       </div>

@@ -4,12 +4,18 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ItemProvider } from "./context/itemContext";
+import { EmailProvider } from "./context/emailContext";
+import { AuthContextProvider } from "./context/authContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ItemProvider>
-      <App />
+      <EmailProvider>
+        <AuthContextProvider>
+          <App />
+        </AuthContextProvider>
+      </EmailProvider>
     </ItemProvider>
   </React.StrictMode>
 );
