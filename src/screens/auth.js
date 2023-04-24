@@ -19,13 +19,15 @@ const Auth = () => {
     setIsAuthenticated,
   } = useContext(AuthContext);
 
+  const [msg, setMsg] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     addUsers({ signUpData });
+    setMsg(false);
     console.log("Data Pushed: ", signUpData);
   };
 
-  const [msg, setMsg] = useState(false);
   const handleLogin = (e) => {
     e.preventDefault();
 
