@@ -54,7 +54,6 @@ const Auth = () => {
                 <button
                   type="button"
                   onClick={(e) => {
-                    setUsers([]);
                     setIsAuthenticated(false);
                   }}
                 >
