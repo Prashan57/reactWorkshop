@@ -9,11 +9,10 @@ const Home = () => {
     <Layout>
       <div style={contentAlignment}>
         {message.welcomeMessage}
-        <Link to="/task" style={contentLinkStyle}>
-          Add a Task
-        </Link>
-        <Link to="/additem" style={contentLinkStyle}>
-          Add an Item
+        <br />
+        <br />
+        <Link to="/auth" style={contentLinkStyle}>
+          Login
         </Link>
       </div>
     </Layout>
