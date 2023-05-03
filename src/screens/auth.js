@@ -17,17 +17,29 @@ const Auth = () => {
     authentication,
     isAuthenticated,
     setIsAuthenticated,
+    registerUser,
+    storedData,
   } = useContext(AuthContext);
 
   const [msg, setMsg] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // //{ name, email, address, password }
+    // registerUser(
+    //   signUpData.name,
+    //   signUpData.email,
+    //   signUpData.address,
+    //   signUpData.password
+    // );
     addUsers({ signUpData });
     setMsg(false);
+    const signUpDataString = JSON.stringify(users);
+    window.localStorage.setItem("signUpData", signUpDataString);
     console.log("Data Pushed: ", signUpData);
   };
 
+  
   const handleLogin = (e) => {
     e.preventDefault();
 

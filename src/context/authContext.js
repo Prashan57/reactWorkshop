@@ -56,6 +56,61 @@ export const AuthContextProvider = ({ children }) => {
     });
   };
 
+  const registerUser = ({ name, email, address, password }) => {
+    const response = {};
+    if (!password | !email | !address | !name) {
+      response.error = "All Fields are empty";
+      return response;
+    }
+    if (name.trim().split(" ").length < 2) {
+      response.error = "Surname is missing";
+      response.field = "name";
+      return response;
+    }
+    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+      response.error = "Valid email is required";
+      return response;
+    }
+    if (users.filter((user) => user.email === email).length > 0) {
+      response.error = "User with the email address already exists";
+      response.field = "email";
+      return response;
+    }
+    setUsers((prev) => {
+      const updatedUserArray = [
+        {
+          name,
+          email,
+          address,
+          password,
+          createdAt: Date.now(),
+        },
+        ...prev,
+      ];
+
+      const userArrayAsString = JSON.stringify(updatedUserArray);
+      window.localStorage.setItem("users", userArrayAsString);
+      return updatedUserArray;
+    });
+
+    response.success = true;
+    return response;
+  };
+
+  const storedData = () => {
+    console.log("Data Retrieval Triggered");
+    try {
+      const userListString = window.localStorage.getItem("users");
+
+      if (!userListString) {
+        const userArray = JSON.parse(userListString);
+        console.log(userArray);
+        setUsers(userArray);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
   return (
     <AuthContext.Provider
       value={{
@@ -73,6 +128,8 @@ export const AuthContextProvider = ({ children }) => {
         isAuthenticated,
         setUsers,
         setIsAuthenticated,
+        storedData,
+        registerUser,
       }}
     >
       {children}
