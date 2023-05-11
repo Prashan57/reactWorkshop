@@ -6,6 +6,7 @@ import Task from "../screens/task";
 import AddItems from "../screens/addItem";
 import User from "../screens/user";
 import Auth from "../screens/auth";
+import UsersPage from "../screens/usersPage";
 
 export const routes = [
   {
@@ -42,6 +43,11 @@ export const routes = [
     path: "/auth",
     element: <Auth />,
     name: "Auth",
+  },
+  {
+    path: "/backendUsers",
+    element: <UsersPage />,
+    name: "BackendUsers",
   },
   {
     path: "/404",
